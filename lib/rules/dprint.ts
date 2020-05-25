@@ -216,6 +216,3 @@ export const dprint = rule({
         },
     }),
 })
-
-// For --rulesdir of this repo
-Object.assign(module.exports, dprint)

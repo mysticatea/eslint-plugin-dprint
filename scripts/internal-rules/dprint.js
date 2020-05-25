@@ -2,4 +2,4 @@
 
 require("ts-node/register")
 
-module.exports = require("../../lib/rules/dprint.ts")
+module.exports = require("../../lib/rules/dprint.ts").dprint
