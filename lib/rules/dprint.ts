@@ -122,7 +122,7 @@ export const dprint = rule({
     meta: {
         docs: {
             category: "Stylistic Issues",
-            description: "Run dprint",
+            description: "Format code with dprint",
             recommended: "error",
         },
         fixable: "code",

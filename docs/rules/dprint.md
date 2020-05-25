@@ -1,6 +1,6 @@
 # dprint/dprint
 
-> run [dprint].
+> Format code with [dprint].
 
 ## Rule Details
 

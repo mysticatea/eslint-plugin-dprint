@@ -18,11 +18,11 @@ $ npm install -D @dprint/core dprint-plugin-typescript
 
 ## 📖 Usage
 
-Write your ESLint configuration:
+Write your ESLint configuration. For example:
 
 ```js
 module.exports = {
-  plugins: ["dprint"],
+  extends: ["eslint:recommended", "plugin:dprint/recommended"],
   rules: {
     "dprint/dprint": [
       "error",
@@ -39,15 +39,20 @@ module.exports = {
 
 Then run ESLint!
 
-### Rules
+### Available Rules
 
-| Rule            | Description               |
-| :-------------- | :------------------------ |
-| [dprint/dprint] | Check code with [dprint]. |
+| Rule            | Description                |
+| :-------------- | :------------------------- |
+| [dprint/dprint] | Format code with [dprint]. |
 
-### Configs
+### Available Configs
 
-TBD.
+| Config                                 | Description                                                                                   |
+| :------------------------------------- | :-------------------------------------------------------------------------------------------- |
+| [plugin:dprint/disable-conflict-rules] | Disable rules where are conflicted with the [dprint/dprint] rule.                             |
+| [plugin:dprint/recommended]            | Enable the [dprint/dprint] rule along with the [plugin:dprint/disable-conflict-rules] preset. |
+
+- Put the [plugin:dprint/recommended] or [plugin:dprint/disable-conflict-rules] config into the last of your `extends` list in order to ensure disabling conflict rules where came from other base configurations.
 
 ## 📰 Changelog
 
@@ -68,3 +73,5 @@ Please use GitHub's Issues/PRs.
 [dprint]: https://github.com/dprint/dprint
 [npm]: https://www.npmjs.com/
 [dprint/dprint]: docs/rules/dprint.md
+[plugin:dprint/disable-conflict-rules]: https://github.com/mysticatea/eslint-plugin-dprint/blob/master/lib/configs/disable-conflict-rules.ts
+[plugin:dprint/recommended]: https://github.com/mysticatea/eslint-plugin-dprint/blob/master/lib/configs/recommended.ts
