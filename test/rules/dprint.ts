@@ -12,6 +12,12 @@ tester.run(
                 filename: path.join(__dirname, "test.ts"),
                 code: 'console.log("hello!");\n',
             },
+
+            // Non JS/TS file
+            {
+                filename: path.join(__dirname, "test.json"),
+                code: "",
+            },
         ],
         invalid: [
             {
