@@ -23,7 +23,8 @@ const stdoutOf = (command: string) => {
     return execSync(
         command,
         { encoding: "utf8", stdio: ["inherit", "pipe", "inherit"] },
-    ).trim()
+    )
+        .trim()
 }
 
 // ------------------------------------------------------------------------------

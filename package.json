@@ -38,7 +38,7 @@
     "lint": "eslint --rulesdir scripts/internal-rules \"**/*.ts\"",
     "test": "npm run -s lint && npm run -s test:ci",
     "test:ci": "tsc && nyc mocha \"test/rules/**/*.ts\"",
-    "watch": "mocha --require ts-node/register --watch --watch-files \"lib/**/*.ts\" --watch-files \"test/**/*.ts\" \"test/rules/**/*.ts\"",
+    "watch": "mocha --require ts-node/register --watch --watch-files \"lib/**/*.ts,test/**/*.ts\" \"test/rules/**/*.ts\"",
     "preversion": "npm test",
     "version": "npm run -s build",
     "postversion": "ts-node scripts/release"
