@@ -1,5 +1,11 @@
 # eslint-plugin-dprint
 
+[![npm version](https://img.shields.io/npm/v/eslint-plugin-dprint.svg)](https://www.npmjs.com/package/eslint-plugin-dprint)
+[![Downloads/month](https://img.shields.io/npm/dm/eslint-plugin-dprint.svg)](http://www.npmtrends.com/eslint-plugin-dprint)
+[![Build Status](https://github.com/mysticatea/eslint-plugin-dprint/workflows/CI/badge.svg)](https://github.com/mysticatea/eslint-plugin-dprint/actions)
+[![codecov](https://codecov.io/gh/mysticatea/eslint-plugin-dprint/branch/master/graph/badge.svg)](https://codecov.io/gh/mysticatea/eslint-plugin-dprint)
+[![Dependency Status](https://david-dm.org/mysticatea/eslint-plugin-dprint.svg)](https://david-dm.org/mysticatea/eslint-plugin-dprint)
+
 The plugin that runs [dprint] to format code in ESLint.
 
 ## 💿 Installation
