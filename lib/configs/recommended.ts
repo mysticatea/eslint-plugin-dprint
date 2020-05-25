@@ -1,4 +1,9 @@
+import { disableConflictRules } from "./disable-conflict-rules"
+
 export const recommended = {
-    extends: require.resolve("./disable-conflict-rules"),
-    rules: { "dprint/dprint": "error" },
+    plugins: ["dprint"],
+    rules: {
+        ...disableConflictRules.rules,
+        "dprint/dprint": "error",
+    },
 }
