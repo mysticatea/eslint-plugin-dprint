@@ -2,6 +2,7 @@
 
 module.exports = {
     extends: ["plugin:@mysticatea/es2020", "plugin:@mysticatea/+node"],
+    ignorePatterns: ["/.nyc_output", "/coverage", "/dist"],
     rules: {
         // Buggy.
         "require-atomic-updates": "off",
@@ -13,19 +14,13 @@ module.exports = {
             {
                 config: {
                     lineWidth: 80,
-                    indentWidth: 4,
-                    useTabs: false,
                     semiColons: "asi",
                     quoteStyle: "preferDouble",
-                    newLineKind: "lf",
-                    useBraces: "whenNotSingleLine",
-                    bracePosition: "nextLineIfHanging",
                     singleBodyPosition: "sameLine",
                     nextControlFlowPosition: "sameLine",
-                    trailingCommas: "onlyMultiLine",
                     operatorPosition: "sameLine",
-                    preferSingleLine: true,
                     "arrowFunction.useParentheses": "preferNone",
+                    "taggedTemplate.spaceBeforeLiteral": false,
                 },
             },
         ],

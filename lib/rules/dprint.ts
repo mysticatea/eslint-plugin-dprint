@@ -213,9 +213,11 @@ export const dprint = rule(
                 const globalConfig = resolveConfiguration({}).config
                 const tsPlugin = new TypeScriptPlugin(config)
                 tsPlugin.initialize({ environment, globalConfig })
-                const formattedText = formatFileText(
-                    { filePath, fileText, plugins: [tsPlugin] },
-                )
+                const formattedText = formatFileText({
+                    filePath,
+                    fileText,
+                    plugins: [tsPlugin],
+                })
                 if (typeof formattedText !== "string") {
                     return
                 }
