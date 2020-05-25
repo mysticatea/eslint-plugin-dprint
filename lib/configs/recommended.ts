@@ -1,5 +1,4 @@
 export const recommended = {
-    extends: "dprint/disable-conflicted-rules",
-    plugins: ["dprint"],
+    extends: require.resolve("./disable-conflicted-rules"),
     rules: { "dprint/dprint": "error" },
 }
