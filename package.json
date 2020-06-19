@@ -13,11 +13,9 @@
     "eslint": ">=5.16.0"
   },
   "dependencies": {
-    "@dprint/core": "^0.9.0",
     "@typescript-eslint/experimental-utils": "^3.0.0",
     "debug": "^4.1.1",
-    "diff": "^4.0.2",
-    "dprint-plugin-typescript": "^0.20.4"
+    "diff": "^4.0.2"
   },
   "devDependencies": {
     "@mysticatea/eslint-plugin": "^13.0.0",
@@ -35,7 +33,7 @@
     "typescript": "^3.9.3"
   },
   "scripts": {
-    "build": "rimraf dist && tsc -p tsconfig.build.json && cpx \"{LICENSE,README.md,package.json}\" dist",
+    "build": "rimraf dist && tsc -p tsconfig.build.json && cpx \"{LICENSE,README.md,package.json,lib/dprint/LICENSE,lib/dprint/*.wasm}\" dist",
     "codecov": "nyc report --reporter text-lcov | codecov --pipe --disable=gcov",
     "lint": "eslint --rulesdir scripts/internal-rules \"**/*.ts\"",
     "test": "npm run -s lint && npm run -s test:ci",

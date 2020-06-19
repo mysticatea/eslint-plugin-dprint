@@ -1,7 +1,8 @@
 import path from "path"
 import { TSESLint } from "@typescript-eslint/experimental-utils"
 import { Diff, DifferenceIterator } from "../util/difference-iterator"
-import { loadDprint } from "../util/dprint"
+import configSchema from "../dprint/config-schema.json"
+import { format } from "../dprint/typescript"
 import { hasLinebreak, isWhitespace } from "../util/predicate"
 import { rule } from "../util/rule"
 
@@ -13,19 +14,6 @@ type MessageId = (typeof dprint) extends TSESLint.RuleModule<infer T, any, any>
 type Message = {
     messageId: MessageId
     data: Record<string, string>
-}
-
-/** The `environment` option value that is noop for dprint. */
-const environment: import("@dprint/core").CliLoggingEnvironment = {
-    log() {
-        // Do nothing.
-    },
-    warn() {
-        // Do nothing.
-    },
-    error() {
-        // Do nothing.
-    },
 }
 
 /**
@@ -139,14 +127,16 @@ export const dprint = rule({
             moveCodeToPrevLine: "Move code {{text}} to the previous line.",
             moveCode: "Require tweaking whitespaces around code {{text}}.",
         },
-        schema: [
-            {
+        schema: {
+            definitions: configSchema.definitions as any,
+            type: "array",
+            items: [{
                 type: "object",
-                properties: { config: { type: "object" } },
+                properties: { config: configSchema },
                 additionalProperties: false,
-                required: ["config"],
-            },
-        ],
+            }],
+            additionalItems: false,
+        },
         type: "layout",
     },
     defaultOptions: [{ config: {} }],
@@ -163,22 +153,8 @@ export const dprint = rule({
                 return
             }
 
-            // Load dprint
-            const {
-                TypeScriptPlugin,
-                formatFileText,
-                resolveConfiguration,
-            } = loadDprint(filePath)
-
             // Does format
-            const globalConfig = resolveConfiguration({}).config
-            const tsPlugin = new TypeScriptPlugin(config)
-            tsPlugin.initialize({ environment, globalConfig })
-            const formattedText = formatFileText({
-                filePath,
-                fileText,
-                plugins: [tsPlugin],
-            })
+            const formattedText = format(config, filePath, fileText)
             if (typeof formattedText !== "string") {
                 return
             }

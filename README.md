@@ -16,11 +16,7 @@ Use [npm] or a compatible tool.
 $ npm install -D eslint eslint-plugin-dprint
 ```
 
-If you want to use [dprint] of own version, install `@dprint/core` and `dprint-plugin-typescript` as well. This is optional.
-
-```
-$ npm install -D @dprint/core dprint-plugin-typescript
-```
+- `eslint-plugin-dprint` contains [typescript-0.19.2.wasm] because that will be not likely published to [npm] repository.
 
 ## 📖 Usage
 
@@ -35,7 +31,7 @@ module.exports = {
       {
         config: {
           // The TypeScript configuration of dprint
-          // See also https://github.com/dprint/dprint/blob/457cbb5a2a8ded959e8185bf8528ba2b7241b7dd/packages/dprint-plugin-typescript/lib/dprint-plugin-typescript.d.ts
+          // See also https://dprint.dev/plugins/typescript/config/
         },
       },
     ],
@@ -43,7 +39,7 @@ module.exports = {
 };
 ```
 
-Then run ESLint!
+Then run ESLint with `--fix`!
 
 ### Available Rules
 
@@ -78,6 +74,7 @@ Please use GitHub's Issues/PRs.
 
 [dprint]: https://github.com/dprint/dprint
 [npm]: https://www.npmjs.com/
+[typescript-0.19.2.wasm]: lib/dprint/typescript-0.19.2.wasm
 [dprint/dprint]: docs/rules/dprint.md
 [plugin:dprint/disable-conflict-rules]: https://github.com/mysticatea/eslint-plugin-dprint/blob/master/lib/configs/disable-conflict-rules.ts
 [plugin:dprint/recommended]: https://github.com/mysticatea/eslint-plugin-dprint/blob/master/lib/configs/recommended.ts
