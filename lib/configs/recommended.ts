@@ -4,6 +4,6 @@ export const recommended = {
     plugins: ["dprint"],
     rules: {
         ...disableConflictRules.rules,
-        "dprint/dprint": "error",
+        "dprint/dprint": "warn",
     },
 }
