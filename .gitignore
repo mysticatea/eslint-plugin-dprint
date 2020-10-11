@@ -1,3 +1,4 @@
+/.dprint-plugins
 /.nyc_output
 /coverage
 /dist

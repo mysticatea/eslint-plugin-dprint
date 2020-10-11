@@ -16,7 +16,7 @@ Use [npm] or a compatible tool.
 $ npm install -D eslint eslint-plugin-dprint
 ```
 
-- `eslint-plugin-dprint` contains [typescript-0.19.2.wasm] because that will be not likely published to [npm] repository.
+- `eslint-plugin-dprint` contains [typescript-0.32.4.wasm] because that will be not likely published to [npm] repository.
 
 ## 📖 Usage
 
@@ -74,7 +74,7 @@ Please use GitHub's Issues/PRs.
 
 [dprint]: https://github.com/dprint/dprint
 [npm]: https://www.npmjs.com/
-[typescript-0.19.2.wasm]: lib/dprint/typescript-0.19.2.wasm
+[typescript-0.32.4.wasm]: lib/dprint/typescript-0.32.4.wasm
 [dprint/dprint]: docs/rules/dprint.md
 [plugin:dprint/disable-conflict-rules]: https://github.com/mysticatea/eslint-plugin-dprint/blob/master/lib/configs/disable-conflict-rules.ts
 [plugin:dprint/recommended]: https://github.com/mysticatea/eslint-plugin-dprint/blob/master/lib/configs/recommended.ts

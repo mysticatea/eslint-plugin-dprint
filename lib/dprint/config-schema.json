@@ -107,7 +107,7 @@
         "bracePosition": {
             "description": "Where to place the opening brace.",
             "type": "string",
-            "default": "nextLineIfHanging",
+            "default": "sameLineUnlessHanging",
             "oneOf": [
                 {
                     "enum": ["maintain"],
@@ -122,8 +122,8 @@
                     "description": "Forces the brace to be on the next line."
                 },
                 {
-                    "enum": ["nextLineIfHanging"],
-                    "description": "Forces the brace to be on the next line if the same line is hanging, but otherwise uses the next."
+                    "enum": ["sameLineUnlessHanging"],
+                    "description": "Forces the brace to be on the next line if the same line is hanging, but otherwise uses the same line."
                 }
             ]
         },
@@ -233,6 +233,25 @@
                 }
             ]
         },
+        "sortOrder": {
+            "description": "The kind of sort ordering to use.",
+            "type": "string",
+            "default": "caseInsensitive",
+            "oneOf": [
+                {
+                    "enum": ["maintain"],
+                    "description": "Maintains the current ordering."
+                },
+                {
+                    "enum": ["caseSensitive"],
+                    "description": "Alphabetically and case sensitive."
+                },
+                {
+                    "enum": ["caseInsensitive"],
+                    "description": "Alphabetically and case insensitive."
+                }
+            ]
+        },
         "deno": {
             "description": "Top level configuration that sets the configuration to what is used in Deno.",
             "type": "boolean",
@@ -303,16 +322,31 @@
             "default": "maintain",
             "oneOf": [
                 {
-                    "enum": ["newline"],
+                    "enum": ["newLine"],
                     "description": "Forces a new line between members."
                 },
                 {
-                    "enum": ["blankline"],
+                    "enum": ["blankLine"],
                     "description": "Forces a blank line between members."
                 },
                 {
                     "enum": ["maintain"],
                     "description": "Maintains whether a newline or blankline is used."
+                }
+            ]
+        },
+        "typeLiteral.separatorKind": {
+            "description": "The kind of separator to use in type literals.",
+            "type": "string",
+            "default": "semiColon",
+            "oneOf": [
+                {
+                    "enum": ["semiColon"],
+                    "description": "Use semi-colons."
+                },
+                {
+                    "enum": ["comma"],
+                    "description": "Use commas."
                 }
             ]
         },
@@ -683,7 +717,7 @@
             "type": "string"
         },
         "locked": {
-            "description": "Whether the configuration is allowed to be overriden or extended.",
+            "description": "Whether the configuration is not allowed to be overriden or extended.",
             "type": "boolean"
         },
         "lineWidth": {
@@ -743,6 +777,15 @@
         },
         "memberExpression.linePerExpression": {
             "$ref": "#/definitions/memberExpression.linePerExpression"
+        },
+        "typeLiteral.separatorKind": {
+            "$ref": "#/definitions/typeLiteral.separatorKind"
+        },
+        "typeLiteral.separatorKind.singleLine": {
+            "$ref": "#/definitions/typeLiteral.separatorKind"
+        },
+        "typeLiteral.separatorKind.multiLine": {
+            "$ref": "#/definitions/typeLiteral.separatorKind"
         },
         "enumDeclaration.memberSpacing": {
             "$ref": "#/definitions/enumDeclaration.memberSpacing"
@@ -818,6 +861,12 @@
         },
         "whileStatement.spaceAfterWhileKeyword": {
             "$ref": "#/definitions/whileStatement.spaceAfterWhileKeyword"
+        },
+        "exportDeclaration.sortNamedExports": {
+            "$ref": "#/definitions/sortOrder"
+        },
+        "importDeclaration.sortNamedImports": {
+            "$ref": "#/definitions/sortOrder"
         },
         "ignoreNodeCommentText": {
             "description": "The text to use for an ignore comment (ex. `// dprint-ignore`).",
@@ -956,6 +1005,9 @@
             "$ref": "#/definitions/trailingCommas"
         },
         "tupleType.trailingCommas": {
+            "$ref": "#/definitions/trailingCommas"
+        },
+        "typeLiteral.trailingCommas": {
             "$ref": "#/definitions/trailingCommas"
         },
         "typeParameters.trailingCommas": {
@@ -1111,6 +1163,5 @@
         "variableStatement.preferSingleLine": {
             "$ref": "#/definitions/preferSingleLine"
         }
-    },
-    "additionalProperties": false
+    }
 }
