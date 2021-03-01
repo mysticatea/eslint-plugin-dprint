@@ -1,8 +1,8 @@
-import path from "path"
 import { TSESLint } from "@typescript-eslint/experimental-utils"
-import { Diff, DifferenceIterator } from "../util/difference-iterator"
+import path from "path"
 import configSchema from "../dprint/config-schema.json"
 import { format } from "../dprint/typescript"
+import { Diff, DifferenceIterator } from "../util/difference-iterator"
 import { hasLinebreak, isWhitespace } from "../util/predicate"
 import { rule } from "../util/rule"
 

@@ -1,5 +1,5 @@
-import path from "path"
 import { TSESLint } from "@typescript-eslint/experimental-utils"
+import path from "path"
 import { dprint } from "../../lib/rules/dprint"
 
 const tester = new TSESLint.RuleTester()
